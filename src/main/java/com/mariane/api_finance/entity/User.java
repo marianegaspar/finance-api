@@ -1,6 +1,7 @@
 package com.mariane.api_finance.entity;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,6 +22,7 @@ public class User {
 
     private LocalDateTime createdAt;
 
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Account account;
 
@@ -29,5 +31,54 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
     // getters e setters
+
 }

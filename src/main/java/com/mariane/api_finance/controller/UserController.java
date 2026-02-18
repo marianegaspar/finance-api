@@ -1,7 +1,9 @@
 package com.mariane.api_finance.controller;
 
-import com.mariane.api_finance.entity.User;
+import com.mariane.api_finance.dto.UserRequestDTO;
+import com.mariane.api_finance.dto.UserResponseDTO;
 import com.mariane.api_finance.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,21 +19,22 @@ public class UserController {
     }
 
     // Criar usuário
+
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        System.out.println("Password recebido: " + user.getPassword());
-        return userService.createUser(user);
+    public UserResponseDTO createUser(@RequestBody @Valid UserRequestDTO dto) {
+        return userService.createUser(dto);
     }
 
     // Listar todos
     @GetMapping
-    public List<User> findAllUsers() {
+    public List<UserResponseDTO> findAllUsers() {
+
         return userService.findAllUsers();
     }
 
     // Buscar por id
     @GetMapping("/{id}")
-    public User findUserById(@PathVariable Long id) {
+    public UserResponseDTO findUserById(@PathVariable Long id) {
         return userService.findUserById(id);
     }
 }

@@ -6,6 +6,7 @@ import com.mariane.api_finance.dto.UserRequestDTO;
 import com.mariane.api_finance.entity.Account;
 import com.mariane.api_finance.entity.User;
 import com.mariane.api_finance.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +16,11 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // ✅ Criar usuário

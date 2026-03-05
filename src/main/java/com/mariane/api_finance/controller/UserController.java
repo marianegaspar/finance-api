@@ -32,7 +32,7 @@ public class UserController {
         return userService.findAllUsers();
     }
 
-    // Buscar por id
+    // Buscar por iSELECT id, email, password FROM users;d
     @GetMapping("/{id}")
     public UserResponseDTO findUserById(@PathVariable Long id) {
         return userService.findUserById(id);

@@ -32,7 +32,7 @@ public class AuthService {
         }
 
         //pra gerar token
-        String token = jwtService.generateToken(String.valueOf(user));
+        String token = jwtService.generateToken(user);
 
         return new LoginResponseDTO(
                 user.getId(),
